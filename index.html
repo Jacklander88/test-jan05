@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tactical Awareness Demo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <div id="app">
+        <!-- Top Bar -->
+        <div id="top-bar">
+            <div id="user-id">JACEK_DEF_DEV</div>
+            <div id="notifications">
+                <i class="fa-solid fa-bell"></i>
+            </div>
+            <div id="map-view-toggle">
+                <button id="satellite-btn">Satellite</button>
+                <button id="road-btn">Road</button>
+            </div>
+            <div id="search-bar">
+                <input type="text" placeholder="Search..." id="search-input">
+            </div>
+        </div>
+
+        <!-- Map Container -->
+        <div id="map"></div>
+
+        <!-- Right Tool Panel -->
+        <div id="tool-panel">
+            <button id="add-marker-btn">Add Marker</button>
+            <button id="share-marker-btn">Share Marker</button>
+            <button id="export-btn">Export Map</button>
+            <button id="sync-btn">Sync (Simulated)</button>
+            <button id="settings-btn">Settings</button>
+        </div>
+
+        <!-- Left Sidebar -->
+        <div id="sidebar">
+            <h3>Legend</h3>
+            <div class="legend-item">
+                <span class="marker-icon user"></span> You
+            </div>
+            <div class="legend-item">
+                <span class="marker-icon enemy"></span> Enemy
+            </div>
+            <div class="legend-item">
+                <span class="marker-icon ally"></span> Ally
+            </div>
+            <div class="legend-item">
+                <span class="marker-icon measurement"></span> Measurement
+            </div>
+            <div class="legend-item">
+                <span class="marker-icon route"></span> Route
+            </div>
+            <div class="legend-item">
+                <span class="marker-icon zone"></span> Zone
+            </div>
+            <h3>Filters</h3>
+            <button id="show-users-btn">Show Users</button>
+            <button id="show-markers-btn">Show Markers</button>
+            <button id="show-routes-btn">Show Routes</button>
+            <h3>Mission</h3>
+            <div id="mission-status">No Mission</div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div id="bottom-bar">
+            <div id="scale">0.5 mi</div>
+            <div id="compass">N</div>
+            <div id="user-id-bottom">JACEK_DEF_DEV</div>
+        </div>
+
+        <!-- Modal for Marker Info -->
+        <div id="marker-modal" style="display: none;">
+            <div class="modal-content">
+                <h3>Marker Details</h3>
+                <p><strong>Name:</strong> <span id="marker-name">Untitled</span></p>
+                <p><strong>Type:</strong> <span id="marker-type">Measurement</span></p>
+                <p><strong>Timestamp:</strong> <span id="marker-time">2025-01-01 12:00</span></p>
+                <button id="close-modal-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

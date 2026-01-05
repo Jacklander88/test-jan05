@@ -1,0 +1,326 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Top Bar */
+#top-bar {
+    background: #2c3e50;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #34495e;
+}
+
+#user-id, #notifications {
+    font-weight: bold;
+}
+
+#map-view-toggle {
+    display: flex;
+    gap: 10px;
+}
+
+#search-bar input {
+    width: 200px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Map */
+#map {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+}
+
+/* Tool Panel */
+#tool-panel {
+    background: #e9ecef;
+    padding: 15px;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#tool-panel button {
+    padding: 8px 15px;
+    background: #34495e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#tool-panel button:hover {
+    background: #2c3e50;
+}
+
+/* Sidebar */
+#sidebar {
+    width: 200px;
+    background: #f8f9fa;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    overflow-y: auto;
+}
+
+#sidebar h3 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    padding: 5px;
+    border-left: 3px solid #ddd;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.marker-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    display: inline-block;
+    background: none;
+}
+
+.user {
+    background: #3498db;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+
+.enemy {
+    background: #e74c3c;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+
+.ally {
+    background: #27ae60;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+
+.measurement {
+    background: #f39c12;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+
+.route {
+    background: #34495e;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+
+.zone {
+    background: #e74c3c;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+
+/* Bottom Bar */
+#bottom-bar {
+    background: #2c3e50;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #34495e;
+}
+
+#scale, #compass {
+    font-size: 14px;
+}
+
+/* Modal */
+#marker-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.modal-content h3 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.modal-content p {
+    margin: 5px 0;
+}
+
+#close-modal-btn {
+    background: #3498db;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+/* Map Styling */
+.leaflet-container {
+    width: 100%;
+    height: 100%;
+}
+
+.leaflet-popup-content {
+    font-size: 14px;
+}
+
+/* Simulated User Marker */
+.leaflet-marker-icon {
+    background: none;
+}
+
+.leaflet-marker-icon.leaflet-user-marker {
+    background: #3498db;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+/* Simulated Other Users */
+.leaflet-marker-icon.leaflet-enemy-marker {
+    background: #e74c3c;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.leaflet-marker-icon.leaflet-ally-marker {
+    background: #27ae60;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+/* Simulated Marker Types */
+.leaflet-marker-icon.leaflet-measurement-marker {
+    background: #f39c12;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.leaflet-marker-icon.leaflet-route-marker {
+    background: #34495e;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.leaflet-marker-icon.leaflet-zone-marker {
+    background: #e74c3c;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+/* Icons */
+.fa-bell {
+    font-size: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        border-left: 1px solid #ddd;
+        border-top: 1px solid #ddd;
+        border-bottom: none;
+    }
+
+    #tool-panel {
+        border-left: none;
+        border-top: 1px solid #ddd;
+    }
+}
