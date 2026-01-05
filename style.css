@@ -52,7 +52,7 @@ body {
     height: 100%;
 }
 
-/* Tool Panel */
+/* Tool Panel (Right) */
 #tool-panel {
     background: #e9ecef;
     padding: 15px;
@@ -65,7 +65,7 @@ body {
 
 #tool-panel button {
     padding: 8px 15px;
-    background: #34495e;
+    background: #3498db;
     color: white;
     border: none;
     border-radius: 5px;
@@ -76,7 +76,7 @@ body {
     background: #2c3e50;
 }
 
-/* Sidebar */
+/* Left Sidebar (Now with Filters + Mission) */
 #sidebar {
     width: 200px;
     background: #f8f9fa;
@@ -91,70 +91,18 @@ body {
     color: #2c3e50;
 }
 
-.legend-item {
-    display: flex;
-    align-items: center;
-    margin: 8px 0;
-    padding: 5px;
-    border-left: 3px solid #ddd;
-    background: #fff;
-    border-radius: 5px;
-}
-
-.marker-icon {
-    width: 16px;
-    height: 16px;
-    margin-right: 8px;
-    display: inline-block;
-    background: none;
-}
-
-.user {
+#sidebar button {
+    padding: 8px 15px;
     background: #3498db;
-    border-radius: 50%;
-    width: 16px;
-    height: 16px;
-    display: inline-block;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px 0;
 }
 
-.enemy {
-    background: #e74c3c;
-    border-radius: 50%;
-    width: 16px;
-    height: 16px;
-    display: inline-block;
-}
-
-.ally {
-    background: #27ae60;
-    border-radius: 50%;
-    width: 16px;
-    height: 16px;
-    display: inline-block;
-}
-
-.measurement {
-    background: #f39c12;
-    border-radius: 50%;
-    width: 16px;
-    height: 16px;
-    display: inline-block;
-}
-
-.route {
-    background: #34495e;
-    border-radius: 50%;
-    width: 16px;
-    height: 16px;
-    display: inline-block;
-}
-
-.zone {
-    background: #e74c3c;
-    border-radius: 50%;
-    width: 16px;
-    height: 16px;
-    display: inline-block;
+#sidebar button:hover {
+    background: #2c3e50;
 }
 
 /* Bottom Bar */
@@ -316,7 +264,6 @@ body {
         border-bottom: 1px solid #ddd;
         border-left: 1px solid #ddd;
         border-top: 1px solid #ddd;
-        border-bottom: none;
     }
 
     #tool-panel {
